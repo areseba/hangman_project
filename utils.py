@@ -12,9 +12,9 @@ def load_words(filename):
             words.append(line.strip())
         return words
 
+
 def get_random_word(filename):
     """Elijo una pelicula al azar desde un archivo de texto."""
-    movies= load_words(filename)
+    movies = load_words(filename)
     movie = random.choice(movies)
     return movie
-
