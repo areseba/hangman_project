@@ -5,10 +5,25 @@ from utils import get_random_word
 from game import HangmanGame
 
 
+# Selecciona una película aleatoriamente.
 word = get_random_word(filename="wordlist.txt")
-print(word)
-print(len(word))
 
+# Crea una instancia del juego.
 game = HangmanGame(word)
 game.display_progress()
-print(game)
+
+# Solicita y valida la letra ingresada por el jugador.
+while True:
+    letter = input("Ingresa una letra: ")
+
+    if len(letter) != 1:
+        print("Debes ingresar una sola letra.")
+        continue
+    if not letter.isalpha():
+        print("Debes ingresar una letra.")
+        continue
+    if letter in game.guessed_letters:
+        print("Ya ingresaste esa letra.")
+        continue
+    game.guessed_letters.append(letter)
+    break
