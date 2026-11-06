@@ -51,9 +51,9 @@ class HangmanGame:
             # Normalizamos la letra para comparar sin tildes.
             normalized = normalize_letter(letter)
 
-            # Conservamos los espacios entre las palabras.
-            if letter == " ":
-                progress += " "
+             # Mostramos automáticamente espacios y signos de puntuación.
+            if not letter.isalpha():
+                progress += letter
 
             # Comprobamos si es la primera letra de una palabra.
             elif posicion == 0 or self.word[posicion - 1] == " ":
